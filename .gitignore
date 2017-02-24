@@ -93,3 +93,8 @@ ENV/
 .idea
 atlassian-ide-plugin.xml
 .vscode
+
+
+#DRED-UI
+node_modules/
+build/
