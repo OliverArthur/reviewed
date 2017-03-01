@@ -1,2 +1,17 @@
+//reset
+html,
+body {
+  font-size: 0.625%;
+  background: #F5F5F5;
+}
+
+body {
+  margin: 0;
+}
+
 // layout
-@import "js/layout/layout"
+@import "js/layout/layout";
+// reviews
+@import "js/reviews/reviews";
+// components
+@import "js/directives/ratings-start/ratings-start";

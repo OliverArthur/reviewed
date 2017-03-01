@@ -81,7 +81,9 @@ gulp.task('build', ['html', 'css', 'browserify'], () => {
 gulp.task('default', ['html', 'css', 'browserify'], () => {
 
   browserSync.init(['./build/**/**.**'], {
+    open: 'external',
     server: "./build",
+    host: '0.0.0.0',
     port: 3000,
     notify: false,
     ui: {

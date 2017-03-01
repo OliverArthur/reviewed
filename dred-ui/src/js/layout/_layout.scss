@@ -1,6 +1,25 @@
+.mdl-layout__container {
+  position: relative;
+  background: #F5F5F5;
+}
+
 header.dred-layout__header {
-  background-color: #FFF!important;
-  a.dred-navigation__link {
-    color: #333;
+  background-color: #FFF;
+  @media screen and (max-width: 1024px) {
+    display: block;
+  }
+}
+
+.dred-content__layout {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  max-width: 100%;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+  footer {
+    display: none;
   }
 }

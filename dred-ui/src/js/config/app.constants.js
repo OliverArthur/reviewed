@@ -1,5 +1,5 @@
 const AppConstants = {
-  api: 'http://localhost:3000/api',
+  api: 'http://0.0.0.0:5000/api',
   appName: 'DrEd',
 };
 

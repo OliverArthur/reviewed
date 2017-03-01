@@ -1,0 +1,6 @@
+<span ng-class="{isReadonly: isReadonly}">
+  <i ng-class="renderObj" 
+  ng-repeat="renderObj in renderAry" 
+  ng-click="setValue($index)" 
+  ng-mouseenter="changeValue($index, changeOnHover )" > </i>
+</span>

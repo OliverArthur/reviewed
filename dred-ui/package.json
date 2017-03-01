@@ -9,7 +9,7 @@
     "eslint": "./node_modules/eslint/bin/eslint.js"
   },
   "scripts": {
-    "lint": "eslint src tests"
+    "server": "gulp"
   },
   "author": "Oliver Arthur <oliverarthurnardi@gmail.com>",
   "license": "ISC",

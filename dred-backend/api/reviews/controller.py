@@ -6,8 +6,8 @@ import logging
 from sqlalchemy.exc import IntegrityError
 
 import api.utils.responses as res
-from api.utils.responses import api_response
 from api.reviews.model import Reviews, ReviewsSchema
+from api.utils.responses import api_response
 from api import db
 
 
@@ -46,13 +46,17 @@ def get_one_review(review_id):
         )
 
 
-def add_reviews(user_name, title, review, rating):
+def add_reviews(user_name, title, review, rating, facebook,
+                twitter, linkedin, published):
     try:
         reviews = Reviews(
             user_name=user_name,
             title=title,
             review=review,
-            rating=rating
+            facebook=facebook,
+            twitter=twitter,
+            linkedin=linkedin,
+            published=published
         )
 
         # add review to the session
@@ -64,6 +68,14 @@ def add_reviews(user_name, title, review, rating):
 
     except IntegrityError as why:
         # logging the error
+        logging.warning(why)
+
+        # Return error.
+        return None
+    
+    except Exception as why:
+
+        # Logging the generic errors.
         logging.warning(why)
 
         # Return error.
