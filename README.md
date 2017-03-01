@@ -23,11 +23,21 @@ git clone git@github.com:OliverArthur/reviewed.git
 ```
 docker-compose build dred-backend
 ```
+if the previous comman failed, please do:
+```
+cd dred-backend
+and then run this command: docker build --tag=oliverarthur/dred-backend .
+```
 
 * To start the container, do:
 
 ```
 docker-compose up dred-backend
+```
+if the previous comman failed, please do:
+```
+cd dred-backend
+and then run this command: docker run -it --publish=5000:5000 oliverarthur/dred-backend .
 ```
    This will start the docker container for the `dred-backend` application.
    
