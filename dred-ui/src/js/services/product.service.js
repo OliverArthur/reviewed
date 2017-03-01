@@ -2,7 +2,7 @@
  * @export
  * @class Review
  */
-export default class Reviews {
+export default class Products {
   constructor(AppConstants, $http, $q) {
     'ngInject';
 
@@ -11,7 +11,15 @@ export default class Reviews {
     this._$q = $q;
   }
 
-  get(product) {
-    let request = {};
+  getOneProduct(id) {
+    let deferred = this._$q.defer();
+    return this._$http({
+      url: `${this._AppConstants.api}/v1/product/${id}`,
+      method: 'GET',
+    }).then(
+      (res) => res.data,
+      (err) => deferred.reject(err)
+    );
+
   }
 }

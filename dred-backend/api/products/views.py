@@ -18,6 +18,7 @@ def add_new_product():
         json_dict = request.get_json()
 
         product = json_dict['product']
+        product_type = json_dict['product_type']
 
     except Exception as why:
         # Logging the error
@@ -30,10 +31,10 @@ def add_new_product():
             code=res.ERROR_999['code']
         )
 
-    new_product = controller.create_products(product=product)
+    new_product = controller.create_products(product=product, product_type=product_type)
 
     # Products schema for some fields.
-    products_schema = ProductSchema(only=('id', 'product',))
+    products_schema = ProductSchema(only=('id', 'product', 'product_type'))
 
     # Return item created.
     return api_response(
@@ -43,19 +44,29 @@ def add_new_product():
     )
 
 
-@prod.route('/all', methods=['GET'])
+@prod.route('/all/products', methods=['GET'])
 def get_all_products():
-    get_products_schema = ProductsSchema()
+    get_products_schema = ProductSchema()
     data_dicts = get_products_schema.dump(
-        service.get_products(), many=True).data
+        controller.get_products(), many=True).data
 
     return jsonify(data_dicts)
 
 
-@prod.route('/get/<product_id>', methods=['GET'])
+@prod.route('/product/<product_id>', methods=['GET'])
 def get_product_by_id(product_id):
 
-    data_response = ProductsSchema.dump(
-        service.get_one_product(product_id)).data
+    result = Product.query.filter_by(id=product_id).first()
+    product_schema = ProductSchema()
 
-    return jsonify(data_response)
+    if result is None:
+        return api_response(
+            http_code=res.ERROR_404['http_code'],
+            message=res.ERROR_404['message']
+        )
+    else:
+        return api_response(
+            http_code=res.REVIEW_FOUND_SUCCESSFULLY['http_code'],
+            message=res.REVIEW_FOUND_SUCCESSFULLY['message'],
+            value=product_schema.dump(result).data
+        )

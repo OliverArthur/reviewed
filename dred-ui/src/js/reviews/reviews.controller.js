@@ -1,9 +1,9 @@
 class ReviewsCtrl {
-  constructor(Reviews, $state, $scope) {
+  constructor(Reviews, Products, $stateParams, $state, $scope) {
     'ngInject';
 
     let reviews;
-
+    this._Products = Products;
     this._Reviews = Reviews;
     this.reviews = reviews;
     this._$state = $state;
@@ -11,6 +11,14 @@ class ReviewsCtrl {
     this.changeOnHover = true;
     this.maxValue = 5;
     this.rating = 0;
+    this.productType = $stateParams.productType;
+    this.productName = $stateParams.productName;
+    console.log(this.productType)
+    console.log(this.productName)
+
+    if (!(typeof (componentHandler) == 'undefined')) {
+      componentHandler.upgradeAllRegistered();
+    }
 
     this.reviews = {
       user_name: '',

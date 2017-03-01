@@ -3,9 +3,13 @@ function ReviewsConfig($stateProvider) {
 
   $stateProvider
     .state('app.reviews', {
-      url: '/',
+      url: '/review?productName?productType',
       controller: 'ReviewsCtrl',
       controllerAs: '$ctrl',
+      params: {
+        productName: null,
+        productType: null
+      },
       templateUrl: 'reviews/reviews.html',
       title: 'Reviews'
     });
