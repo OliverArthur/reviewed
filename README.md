@@ -13,12 +13,14 @@
 * Material design lite for provider the front and UI
 * Docker for provider the DEV env and also can using for Prod env
 
+### Run the application.
+
 1. Clone the repo:
 
 ```
 git clone git@github.com:OliverArthur/reviewed.git
 ```
-#### backend-End container
+#### Backend-End container
 * To build the `dred-backend` container, do:
 ```
 docker-compose build dred-backend
@@ -41,7 +43,7 @@ and then run this command: docker run -it --publish=5000:5000 oliverarthur/dred-
 ```
    This will start the docker container for the `dred-backend` application.
    
-   Front-end is exposed to port `5000`.
+   Back-end is exposed to port `5000`.
    
    url for the api: `http://0.0.0.0:5000`.
 
