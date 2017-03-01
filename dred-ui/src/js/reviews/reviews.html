@@ -7,6 +7,9 @@
         <a ng-href="#step_03" class="mdl-tabs__tab" ng-class="{invalid: reviews.$invalid }">Step 3</a>
       </div>
       <list-errors errors="$ctrl.reviews.errors"></list-errors>
+      <div class="mdl-color-text--grey-500">
+        <h5>Review {{::$ctrl.productName}} {{::$ctrl.productType}}</h5>
+      </div>
       <form name="reviews" class="dred-form__reviews" novalidate>
         <div class="mdl-tabs__panel is-active" id="step_01">
           <div class="mdl-textfield dred-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -93,6 +96,7 @@
     </div>
   </div>
   <div class="dred-card-wide mdl-card mdl-shadow--2dp back">
+    <h2>Thanks</h2>
     <p>{{ ::$ctrl.reviews.success }}</p>
   </div>
 </div>

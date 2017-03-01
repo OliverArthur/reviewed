@@ -11,11 +11,12 @@ from api.products.model import Product, ProductSchema
 from api import db
 
 
-def create_products(product):
+def create_products(product, product_type):
 
     try:
         products = Product(
             product=product,
+            product_type=product_type
         )
 
         # add product to the session
@@ -56,20 +57,4 @@ def get_product():
             message=res.REVIEW_FOUND_SUCCESSFULLY['message'],
             value=pruduct_schema.dump(pruduct_query, many=True).data
 
-        )
-
-def get_one_product(product_id):
-    result = Product.query.filter_by(id=product_id).first()
-    product_schema = ProductsSchema()
-
-    if result is None:
-        return api_response(
-            http_code=res.ERROR_404['http_code'],
-            message=res.ERROR_404['message']
-        )
-    else:
-        return api_response(
-            http_code=res.REVIEW_FOUND_SUCCESSFULLY['http_code'],
-            message=res.REVIEW_FOUND_SUCCESSFULLY['message'],
-            value=product_schema.dump(result).data
         )

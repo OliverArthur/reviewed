@@ -84,6 +84,7 @@ gulp.task('default', ['html', 'css', 'browserify'], () => {
     open: 'external',
     server: "./build",
     host: '0.0.0.0',
+    open: false,
     port: 3000,
     notify: false,
     ui: {

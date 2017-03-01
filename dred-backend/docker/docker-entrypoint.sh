@@ -9,6 +9,6 @@ echo
 
 # Start the server
 echo "Starting the server..."
-python manage.py runserver -h 0.0.0.0 -p 5000
+python manage.py runserver -h 0.0.0.0 -p 5000 -d
 
 exec "$@"
