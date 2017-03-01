@@ -1,6 +1,6 @@
 FROM node:7
 
-# Install necessary tools
+# Install dred-ui tools
 RUN npm install -g \
     gulp
 
