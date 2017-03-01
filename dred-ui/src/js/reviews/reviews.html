@@ -1,0 +1,98 @@
+<div class="dred-layout_reviews dred-flip__card" ng-class="{flip: $ctrl.reviews.isSubmitting == true}">
+  <div class="dred-card-wide mdl-card mdl-shadow--2dp front">
+    <div class="mdl-tabs dred-tabs mdl-js-tabs mdl-js-ripple-effect">
+      <div class="mdl-tabs__tab-bar dred-tabs__tab-bar">
+        <a ng-href="#step_01" class="mdl-tabs__tab is-active">Step 1</a>
+        <a ng-href="#step_02" class="mdl-tabs__tab" ng-class="{invalid: reviews.$invalid }">Step 2</a>
+        <a ng-href="#step_03" class="mdl-tabs__tab" ng-class="{invalid: reviews.$invalid }">Step 3</a>
+      </div>
+      <list-errors errors="$ctrl.reviews.errors"></list-errors>
+      <form name="reviews" class="dred-form__reviews" novalidate>
+        <div class="mdl-tabs__panel is-active" id="step_01">
+          <div class="mdl-textfield dred-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="name" ng-model="$ctrl.reviews.user_name" ng-required="true">
+            <label class="mdl-textfield__label" for="name">Your name</label>
+            <span class="mdl-textfield__error">Please enter your name.</span>
+          </div>
+          <div class="mdl-textfield dred-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="title" ng-model="$ctrl.reviews.title" ng-required="true">
+            <label class="mdl-textfield__label" for="title">Title</label>
+            <span class="mdl-textfield__error">Please enter a title.</span>
+          </div>
+          <div class="mdl-textfield dred-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <textarea class="mdl-textfield__input" type="text" rows="6" id="review" ng-model="$ctrl.reviews.review" ng-required="true"></textarea>
+            <label class="mdl-textfield__label" for="review">Review</label>
+            <span class="mdl-textfield__error">Please enter a description.</span>
+          </div>
+          <div class="mdl-textfield dred-textfield dred-rating__content mdl-js-textfield mdl-textfield--floating-label">
+            <span class="dred-rating__text">Rating: </span>
+            <ratings-start max="$ctrl.maxValue" value='$ctrl.reviews.rating' hover='$ctrl.changeOnHover' is-readonly='$ctrl.isReadonly'></ratings-start>
+            <span class="dred-rating__text">{{$ctrl.reviews.rating}} of {{$ctrl.maxValue}}</span>
+            <input type="hidden" ng-model="$ctrl.reviews.rating">
+          </div>
+          <div class="dred-tabs__action">
+            <div class="mdl-tabs__tab-bar">
+              <a ng-href="#step_02" ng-class="{invalid: reviews.$invalid }" class="mdl-button dred-button mdl-js-button mdl-button--raised mdl-button--colored mdl-tabs__tab">Next</a>
+            </div>
+          </div>
+        </div>
+        <div class="mdl-tabs__panel" id="step_02">
+          <div class="dred-tabs__header">
+            <p>Shared in Social Networks</p>
+          </div>
+          <div class="dred-checkfield">
+            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="facebook">
+              <input type="checkbox" id="facebook" class="mdl-checkbox__input" ng-model="$ctrl.reviews.facebook">
+              <span class="mdl-checkbox__label">Facebook</span>
+            </label>
+          </div>
+          <div class="dred-checkfield">
+            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="twitter">
+              <input type="checkbox" id="twitter" class="mdl-checkbox__input" ng-model="$ctrl.reviews.twitter">
+              <span class="mdl-checkbox__label">Twitter</span>
+            </label>
+          </div>
+          <div class="dred-checkfield">
+            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="linkedin">
+              <input type="checkbox" id="linkedin" class="mdl-checkbox__input" ng-model="$ctrl.reviews.linkedin">
+              <span class="mdl-checkbox__label">Linkedin</span>
+            </label>
+          </div>
+          <div class="dred-tabs__action">
+            <div class="mdl-tabs__tab-bar">
+              <a ng-href="#step_03" ng-class="{invalid: reviews.$invalid }" class="mdl-button dred-button mdl-js-button mdl-button--raised mdl-button--colored mdl-tabs__tab">Next</a>
+            </div>
+          </div>
+        </div>
+        <div class="mdl-tabs__panel" id="step_03">
+          <div class="dred-review__verified-layout">
+            <strong class="dred-review__title">Preview Review</strong>
+            <div class="dred-textfield dred-rating__content">
+              <span class="dred-rating__text">Rating: </span>
+              <ratings-start max="$ctrl.maxValue" value='$ctrl.reviews.rating' hover='$ctrl.changeOnHover' is-readonly='true'></ratings-start>
+              <span class="dred-rating__text">{{$ctrl.reviews.rating}} of {{$ctrl.maxValue}}</span>
+            </div>
+            <div class="dred-textfield__preview">
+              <h4>{{$ctrl.reviews.title}}</h4>
+            </div>
+            <div class="dred-textfield__preview">
+              <p>{{$ctrl.reviews.review}}</p>
+            </div>
+            <div class="dred-textfield__preview social">
+              <strong>Shared on:</strong>
+              <span ng-show="$ctrl.reviews.facebook == true">Facebook</span>
+              <span ng-show="$ctrl.reviews.twitter == true">Twitter</span>
+              <span ng-show="$ctrl.reviews.linkedin == true">Linkedin</span>
+            </div>
+          </div>
+          <div class="dred-tabs__action">
+            <button class="mdl-button dred-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="$ctrl.submit()" ng-disabled="$ctrl.reviews.isSubmitting == true">Publish</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="dred-card-wide mdl-card mdl-shadow--2dp back">
+    <p>{{ ::$ctrl.reviews.success }}</p>
+  </div>
+</div>

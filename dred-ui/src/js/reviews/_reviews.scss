@@ -1,0 +1,111 @@
+.dred-layout_reviews {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin: 4rem 0;
+  .dred-card-wide {
+    display: flex;
+    flex-basis: 40%;
+    max-width: 40%;
+    @media only screen and (max-width: 768px) {
+      flex-basis: 90%;
+      max-width: 90%;
+    }
+    .dred-tabs__tab-bar {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+    a.invalid {
+      opacity: 0.4;
+      z-index: -20;
+      cursor: none;
+    }
+  }
+  .dred-tabs__header {
+    p {
+      font-size: 1em;
+      font-weight: 700;
+      margin: 3rem 0;
+    }
+  }
+  .dred-form__reviews {
+    padding: 2rem 4rem;
+    textarea {
+      resize: none;
+    }
+    .dred-textfield {
+      width: 100%;
+    }
+    .dred-checkfield {
+      margin: 4rem 0;
+    }
+  }
+  .dred-rating__content {
+    span.dred-rating__text {
+      vertical-align: super;
+      display: inline-block;
+    }
+  }
+  .dred-review__verified-layout {
+    strong {
+      margin: 3rem 0;
+      display: inline-block;
+    }
+  }
+  .dred-tabs__action {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: center;
+    border-top: 1px solid #ddd;
+    padding: 3rem 0 0;
+    .dred-button {
+      background-color: #419741;
+    }
+  }
+  .social {
+    span {
+      border: 2px solid #333;
+      display: inline-block;
+      padding: 1rem;
+      border-radius: 4px;
+      margin: 0 1.1rem;
+    }
+  }
+}
+
+.dred-flip__card {
+  perspective: 500px;
+  position: relative;
+  .back {
+    transform: rotateX(-180deg);
+    position: absolute;
+    box-sizing: border-box;
+    transition: all 0.5s ease-in;
+    backface-visibility: hidden;
+    display: flex;
+    flex-basis: 40%;
+    max-width: 40%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    p {
+      font-size: 1.1em;
+      text-align: center;
+    }
+  }
+  &.flip {
+    .back {
+      transform: rotateX(0deg);
+      transition: all 0.5s ease-in;
+    }
+    .front {
+      transition: all 0.5s ease-in;
+      transform: rotateX(180deg);
+      backface-visibility: hidden;
+    }
+  }
+}

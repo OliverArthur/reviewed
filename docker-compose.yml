@@ -1,0 +1,27 @@
+
+version: '2'
+
+services:
+    dred-backend:
+        build: 
+          context: ./dred-backend
+          dockerfile: Dockerfile
+        image: testdred-backend
+        ports: 
+          - "5000:5000"
+        environment: 
+          - DRED_ENV=dev
+        volumes: 
+          - ./dred-backend:/python/src/dred-backend
+    
+    dred-ui:
+        build:
+          context: ./dred-ui
+          dockerfile: Dockerfile
+        image: testdred-ui
+        depends_on:
+            - dred-backend
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./dred-ui:/var/www/dred-ui

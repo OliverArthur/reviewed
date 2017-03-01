@@ -41,29 +41,56 @@ ERROR_999 = {
 }
 
 # Reviews responses
-REVIEWS_CREATED_SUCCESSFULLY = {
+REVIEW_CREATED_SUCCESSFULLY = {
     "http_code": 201,
     "code": "status",
-    "message": "The reviews has been created successfully."
+    "message": "Your review has been published successfully."
 }
 
-REVIEWS_FOUND_SUCCESSFULLY = {
+REVIEW_FOUND_SUCCESSFULLY = {
     "http_code": 200,
     "code": "status",
     "message": "The reviews has been found successfully."
 }
 
-REVIEWS_UPDATED_SUCCESSFULLY = {
+REVIEW_UPDATED_SUCCESSFULLY = {
     "http_code": 201,
     "code": "status",
     "message": "The review has been updated successfully."
 }
 
-REVIEWS_DELETED_SUCCESSFULLY = {
+REVIEW_DELETED_SUCCESSFULLY = {
     "http_code": 204,
     "code": "status",
     "message": "The reviews has been deleted successfully."
 }
+
+# Reviews responses
+PRODUCT_CREATED_SUCCESSFULLY = {
+    "http_code": 201,
+    "code": "status",
+    "message": "The product has been created successfully."
+}
+
+PRODUCT_FOUND_SUCCESSFULLY = {
+    "http_code": 200,
+    "code": "status",
+    "message": "The product has been found successfully."
+}
+
+PRODUCT_UPDATED_SUCCESSFULLY = {
+    "http_code": 201,
+    "code": "status",
+    "message": "The product has been updated successfully."
+}
+
+PRODUCT_DELETED_SUCCESSFULLY = {
+    "http_code": 204,
+    "code": "status",
+    "message": "The product has been deleted successfully."
+}
+
+
 
 
 def api_response(http_code=0, code=None, message=None, value=None):
