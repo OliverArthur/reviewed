@@ -18,7 +18,7 @@ Jinja2==2.9.5
 lazy-object-proxy==1.2.2
 Mako==1.0.6
 MarkupSafe==0.23
-marshmallow==2.13.0
+marshmallow==2.15.1
 marshmallow-jsonapi==0.10.1
 marshmallow-sqlalchemy==0.12.1
 mccabe==0.6.1
