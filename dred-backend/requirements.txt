@@ -16,7 +16,7 @@ isort==4.2.5
 itsdangerous==0.24
 Jinja2==2.9.5
 lazy-object-proxy==1.2.2
-Mako==1.0.6
+Mako==1.2.2
 MarkupSafe==0.23
 marshmallow==2.13.0
 marshmallow-jsonapi==0.10.1
